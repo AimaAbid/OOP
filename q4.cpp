@@ -4,6 +4,7 @@ using namespace std;
 int main()
 {
     int num,i,a[30],hd[30],cd[30],pd[30],count1=0,count2=0,count3=0;
+    float avg,sum;
     cout<<"Enter the number of temperatures you want to add";
     cin>>num;
     cout<<"enter the temperatures"<<endl;
@@ -18,6 +19,7 @@ int main()
 
     for(i=0;i<num;i++)
     {
+        sum=sum+a[i];
         if(a[i]>=85)
         {
             
@@ -49,6 +51,7 @@ int main()
     for(i=0;i<count1;i++)
     {
         cout<<hd[i]<<endl;
+        
     }
 
     cout<<"the cold  days are "<<endl;
@@ -56,6 +59,7 @@ int main()
     for(i=0;i<count3;i++)
     {
         cout<<cd[i]<<endl;
+        
     }
 
 
@@ -64,7 +68,11 @@ int main()
     for(i=0;i<count2;i++)
     {
         cout<<pd[i]<<endl;
+        
     }
+    avg=sum/num;
+
+    cout<<"the average temperature is "<<avg<<endl;
 
     
 

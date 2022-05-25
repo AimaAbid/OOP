@@ -1,49 +1,52 @@
-//string_name.length() gives length of string
 #include<iostream>
-#include<string>
+
 using namespace std;
-
-bool palindrome(string,int start,int end);
-
-
 int main()
 {
-    int len;
-    
-    string str;
-    cout<<"Enter the string"<<endl;
-    cin>>str;
-    len=str.length();
-    int ans=palindrome(str,0,len-1);
-    
-    if(ans==0)
+    int num,i,j,k,a[15],temp;
+    float avg;
+    cout<<"Enter the number of terms"<<endl;
+    cin>>num;
+
+    //taking in all numbers
+    cout<<"enter each term"<<endl;
+    for(i=0;i<num;i++)
     {
-        cout<<"NOT PALINDROME"<<endl;
+        cin>>a[i];
+
     }
 
-    else if(ans==1)
+    //sorting
+    for(j=0;j<num-1;j++)
     {
-        cout<<"PALINDROME"<<endl;
+        for(k=0;k<num-1;k++)
+        {
+            if(a[k]>a[k+1])
+            {
+                temp=a[k];
+                a[k]=a[k+1];
+                a[k+1]=temp;
+               
+            }
+        }
     }
+   
+
+    cout<<"The largest no is "<<a[num-1]<<endl;
+    cout<<"The smallest no is "<<a[0]<<endl;
+    cout<<"The average value is ";
+
+    if(num%2!=0)
+    {
+        avg=a[((num+1)/2)-1]; 
+        cout<<avg;  
+    }
+    else if(num%2==0)
+    {
+         avg=(a[(num/2)-1]+a[(num/2)])/2;
+         cout<<avg<<endl;
+    }
+
 
     return 0;
-}
-
-
-bool palindrome(string str,int start,int end)
-{
-    
-    if(start>=end)
-    {
-        return true;
-    }
-
-    else
-    {
-        return((str[start]==str[end])&&(palindrome(str,start+1,end-1)));
-    }
-       
-
-
-
 }
