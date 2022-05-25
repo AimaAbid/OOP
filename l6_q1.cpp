@@ -1,41 +1,43 @@
-/* Create a class that imitates part of the functionality of the basic data type int. Call the
-class Int (note different capitalization). The only data in this class is an int variable.
-Include member functions to initialize an Int to 0, to initialize it to an int value, 
-to display it (it looks just like an int), and to add two Int values.
-Write a program that exercises this class by creating one uninitialized and two initialized
-Int values, adding the two initialized values and placing the response in the uninitialized
-value, and then displaying this result*/
+//q1 
 #include<iostream>
 using namespace std;
-
 class Int
 {
-    int var;
-
+    private:
+     int variable;
+    
     public:
-    Int():var(0){}
-    Int(int num):var(num){}
+     Int():variable(0)//constructor with no arg to initiaize with zero
+     {}
 
-    void display()
-    {
-        cout<<var;
-    }
+     Int(int var):variable(var)//const with 1 arg to initialize with my own choice
+     {}
 
-    void add(Int n1,Int n2);
+     void display()
+     {
+         cout<<variable;
+     }
+     void add_int(Int,Int);//declaring inside the class but definition is outside
 
 };
 
-void Int::add(Int n1,Int n2)
+void Int::add_int(Int i1,Int i2)//definition of fxn
 {
-    
-    var=n1.var+n2.var;
-    
+    variable=i1.variable+i2.variable;
+
 }
+
 
 int main()
 {
-    Int i1(3),i2(4),i3;
-    i3.add(i1,i2);
+    Int i1(-6),i2(5),i3;
+    i3.add_int(i1,i2);//i3 object stores the added value
     i3.display();
+
+
+
+    
     return 0;
 }
+
+
